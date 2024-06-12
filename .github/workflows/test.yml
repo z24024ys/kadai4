@@ -19,5 +19,5 @@ jobs:
     - name: Run tests
       run: |
         chmod +x gcd.sh
-        chmod +x test_gcd.sh
-        ./test_gcd.sh
+        chmod +x test.sh
+        ./test.sh
