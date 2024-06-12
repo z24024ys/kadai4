@@ -12,13 +12,18 @@ if ! [[ "$1" =~ ^[1-9][0-9]*$ && "$2" =~ ^[1-9][0-9]*$ ]]; then
     exit 1
 fi
 
-# ユークリッドの互除法で最大公約数を求める
-a=$1
-b=$2
-while [ "$b" -ne 0 ]; do
-    remainder=$((a % b))
-    a=$b
-    b=$remainder
-done
+# ユークリッドの互除法で最大公約数を求める関数
+gcd() {
+    local a=$1
+    local b=$2
+    while [ "$b" -ne 0 ]; do
+        remainder=$((a % b))
+        a=$b
+        b=$remainder
+    done
+    echo "$a"
+}
 
-echo "$a"
+# 最大公約数を出力
+result=$(gcd "$1" "$2")
+echo "$result"
