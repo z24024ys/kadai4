@@ -1,0 +1,23 @@
+name: Test GCD Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Run tests
+      run: |
+        chmod +x gcd.sh
+        chmod +x test_gcd.sh
+        ./test_gcd.sh
